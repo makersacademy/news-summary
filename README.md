@@ -1,5 +1,8 @@
 # News Summary starter project
 
+## [User stories link](https://github.com/makersacademy/news-summary)
+
+
 ## Setting up
 
 ### Clone this repo to your computer
