@@ -7,7 +7,23 @@ describe("NewsSummaryController", function() {
     controller = $controller("NewsSummaryController");
   }));
 
-  it("makes exposes a greeting of 'Hello, world'", function() {
-    expect(controller.greeting).toEqual("Hello, world");
+  it('initializes with several greetings', function() {
+    var greetings = [{one: 'Hello, world'},
+                    {one: 'Hi, world'}];
+
+    expect(controller.greetings).toEqual(greetings);
+  });
+
+  it('removes the last greeting', function() {
+  var initialCount = controller.greetings.length;
+  controller.deleteGreeting();
+
+  expect(controller.greetings.length).toEqual(initialCount - 1);
+  });
+
+  it('adds a new greeting', function() {
+    var initialCount = controller.greetings.length;
+    controller.addGreeting('Hola');
+    expect(controller.greetings.length).toEqual(initialCount + 1);
   });
 });

@@ -6,12 +6,18 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
+    <!-- <script src="/newsSummaryService.js"></script> -->
     <title>News Summary</title>
   </head>
 
   <body>
-    <div ng-controller="NewsSummaryController as controller">
-      <p>{{controller.greeting}}</p>
+    <div id='greetings' ng-controller="NewsSummaryController as controller">
+      <p ng-repeat = 'greet in controller.greetings'>
+        {{greet.text}}
+      </p>
+      <input id='new-greeting' type="text" ng-model='greeting'>
+      <button id='add-greeting' ng-click='controller.addGreeting(greeting);'>add</button>
+      <button ng-click='controller.deleteGreeting();'>Delete last greeting</button>
     </div>
   </body>
 </html>
